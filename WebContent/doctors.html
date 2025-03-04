@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Doc-Res</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Remplacer les favicons -->
+    <link href="assets/img/your-favicon.png" rel="icon" />
+    <!-- Remplacez "your-favicon.png" par le fichier de votre propre icône -->
+    <link href="assets/img/your-favicon.png" rel="apple-touch-icon" />
+    <!-- Remplacez "your-favicon.png" par le fichier de votre propre icône -->
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header sticky-top">
+      <!-- End Top Bar -->
+
+      <div class="branding d-flex align-items-center">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a href="doctors.html" class="logo d-flex align-items-center me-auto">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">Doc-Res</h1>
+          </a>
+
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a class="active" href="doctors.html">Doctors</a></li>
+              <li><a href="posts.html">posts</a></li>
+              <li><a href="reservation.html">Reservation</a></li>
+            
+
+              <li>
+                <a  href="reserver_vous_med.html"
+                  >Reserver vous medicaux</a
+                >
+              </li>
+              <li><a href="./NiceAdmin/index.html">Admin</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+
+          <a class="cta-btn d-none d-sm-block" href="#appointment"
+            >Reserver vous medicaux</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section light-background">
+        <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" />
+
+        <div class="container position-relative">
+          <div
+            class="welcome position-relative"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
+            <h2>Bienvenue sur Doc-Res</h2>
+            <p>
+              احجز مع أفضل دكتور في موريتانيا – Trouvez un médecin, une
+              spécialité ou un hôpital facilement
+            </p>
+          </div>
+          <!-- End Welcome -->
+
+          <div class="content row gy-4">
+            <div class="col-lg-12 d-flex align-items-stretch">
+              <div class="search-box" data-aos="zoom-out" data-aos-delay="200">
+                <h3>Trouver votre médecin</h3>
+                <form
+                  action="#"
+                  method="GET"
+                  style="
+                    display: flex;
+                    gap: 10px;
+                    width: 100%;
+                    align-items: center;
+                  "
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nom du médecin"
+                    name="doctor-name"
+                    style="height: 60px; width: 300px"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Spécialité"
+                    name="specialty"
+                    style="height: 60px; width: 300px"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nom de l'hôpital"
+                    name="hospital-name"
+                    style="height: 60px; width: 300px"
+                  />
+                </form>
+              </div>
+            </div>
+            <!-- End Search Box -->
+
+            <!-- End Why Box -->
+          </div>
+          <!-- End Row -->
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- Doctors Section -->
+      <section id="doctors" class="doctors section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Nos Médecins</h2>
+          <p>
+            Découvrez nos médecins qualifiés et réservez votre consultation avec
+            le spécialiste de votre choix.
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-4">
+            <!-- Doctor Card 1 -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="team-member d-flex align-items-start">
+                <div class="pic">
+                  <img
+                    src="assets/img/doctors/doctors-1.jpg"
+                    class="img-fluid"
+                    alt="Dr. Walter White"
+                  />
+                </div>
+                <div class="member-info">
+                  <h4>Dr. Walter White</h4>
+                  <span>Spécialiste en Médecine Interne</span>
+
+                  <!-- Information List -->
+                  <ul class="doctor-info-list">
+                    <li><strong>Adresse :</strong> Nktt, Mauritanie</li>
+                    <li><strong>Spécialité :</strong> Médecine Interne</li>
+                    <li><strong>Consultation :</strong> 500 MRU</li>
+                    <li><strong>Temps d'attente :</strong> 1 heure</li>
+                    <li><strong>Heures de travail :</strong> 8 heures</li>
+                    <li><strong>Séance Téléphonique :</strong> 150 MRU</li>
+                  </ul>
+                  <!-- End Information List -->
+
+                  <div class="text-center">
+                    <a
+                      href="reservation_vous_medicaux.html"
+                      class="btn btn-primary"
+                      >Réserver</a
+                    >
+                    <a href="detaie_doctor.html" class="btn btn-link"
+                      >Détails</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Doctor Card -->
+
+            <!-- Doctor Card 2 -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="team-member d-flex align-items-start">
+                <div class="pic">
+                  <img
+                    src="assets/img/doctors/doctors-2.jpg"
+                    class="img-fluid"
+                    alt="Dr. Sarah Jhonson"
+                  />
+                </div>
+                <div class="member-info">
+                  <h4>Dr. Sarah Jhonson</h4>
+                  <span>Anesthésiste</span>
+
+                  <!-- Information List -->
+                  <ul class="doctor-info-list">
+                    <li><strong>Adresse :</strong> Nktt, Mauritanie</li>
+                    <li><strong>Spécialité :</strong> Anesthésie</li>
+                    <li><strong>Consultation :</strong> 600 MRU</li>
+                    <li><strong>Temps d'attente :</strong> 1 heure</li>
+                    <li><strong>Heures de travail :</strong> 8 heures</li>
+                    <li><strong>Séance Téléphonique :</strong> 200 MRU</li>
+                  </ul>
+                  <!-- End Information List -->
+
+                  <div class="text-center">
+                    <a
+                      href="reservation_vous_medicaux.html"
+                      class="btn btn-primary"
+                      >Réserver</a
+                    >
+                    <a href="detaie_doctor.html" class="btn btn-link"
+                      >Détails</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Doctor Card -->
+
+            <!-- Doctor Card 3 -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="team-member d-flex align-items-start">
+                <div class="pic">
+                  <img
+                    src="assets/img/doctors/doctors-3.jpg"
+                    class="img-fluid"
+                    alt="Dr. William Anderson"
+                  />
+                </div>
+                <div class="member-info">
+                  <h4>Dr. William Anderson</h4>
+                  <span>Cardiologue</span>
+
+                  <!-- Information List -->
+                  <ul class="doctor-info-list">
+                    <li><strong>Adresse :</strong> Nktt, Mauritanie</li>
+                    <li><strong>Spécialité :</strong> Cardiologie</li>
+                    <li><strong>Consultation :</strong> 700 MRU</li>
+                    <li><strong>Temps d'attente :</strong> 1 heure</li>
+                    <li><strong>Heures de travail :</strong> 8 heures</li>
+                    <li><strong>Séance Téléphonique :</strong> 250 MRU</li>
+                  </ul>
+                  <!-- End Information List -->
+
+                  <div class="text-center">
+                    <a
+                      href="reservation_vous_medicaux.html"
+                      class="btn btn-primary"
+                      >Réserver</a
+                    >
+                    <a href="detaie_doctor.html" class="btn btn-link"
+                      >Détails</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Doctor Card -->
+
+            <!-- Doctor Card 4 -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="team-member d-flex align-items-start">
+                <div class="pic">
+                  <img
+                    src="assets/img/doctors/doctors-4.jpg"
+                    class="img-fluid"
+                    alt="Dr. Amanda Jepson"
+                  />
+                </div>
+                <div class="member-info">
+                  <h4>
+                    <a
+                      href="detaie_doctor.html"
+                      style="text-decoration: none; color: inherit"
+                    >
+                      Dr. Amanda Jepson
+                    </a>
+                  </h4>
+                  <span>Neurochirurgienne</span>
+
+                  <!-- Information List -->
+                  <ul class="doctor-info-list">
+                    <li><strong>Adresse :</strong> Nktt, Mauritanie</li>
+                    <li><strong>Spécialité :</strong> Neurochirurgie</li>
+                    <li><strong>Consultation :</strong> 800 MRU</li>
+                    <li><strong>Temps d'attente :</strong> 1 heure</li>
+                    <li><strong>Heures de travail :</strong> 8 heures</li>
+                    <li><strong>Séance Téléphonique :</strong> 300 MRU</li>
+                  </ul>
+                  <!-- End Information List -->
+
+                  <div class="text-center">
+                    <a
+                      href="reservation_vous_medicaux.html"
+                      class="btn btn-primary"
+                      >Réserver</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Doctor Card -->
+          </div>
+        </div>
+      </section>
+      <!-- /Doctors Section -->
+    </main>
+
+    <footer id="footer" class="footer light-background">
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <!-- Section logo et contact -->
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">Doc-Res</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>A108 Adam Street</p>
+              <p>Nktt, NY 535022</p>
+              <p class="mt-3">
+                <strong>Phone:</strong> <span>+1 5589 55488 55</span>
+              </p>
+              <p><strong>Email:</strong> <span>info@doc-res.com</span></p>
+            </div>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <!-- Liens utiles -->
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Liens utiles</h4>
+            <ul>
+              <li><a href="#">Médecins</a></li>
+              <li><a href="#">À propos de nous</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Conditions d'utilisation</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+            </ul>
+          </div>
+
+          <!-- Nos services -->
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nos services</h4>
+            <ul>
+              <li><a href="#">Réservation en ligne</a></li>
+              <li><a href="#">Consultations médicales</a></li>
+              <li><a href="#">Consultation à distance</a></li>
+              <li><a href="#">Prise de rendez-vous rapide</a></li>
+              <li><a href="#">Conseils médicaux</a></li>
+            </ul>
+          </div>
+
+          <!-- Autres informations -->
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>À propos</h4>
+            <ul>
+              <li><a href="#">Notre mission</a></li>
+              <li><a href="#">Équipe</a></li>
+              <li><a href="#">Nos partenaires</a></li>
+              <li><a href="#">Nos valeurs</a></li>
+              <li><a href="#">Carrières</a></li>
+            </ul>
+          </div>
+
+          <!-- Support client -->
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Assistance</a></li>
+              <li><a href="#">Nous contacter</a></li>
+              <li><a href="#">Témoignages</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container copyright text-center mt-4">
+        <p>
+          © <span>Copyright</span>
+          <strong class="px-1 sitename">Doc-Res</strong>
+          <span>All Rights Reserved</span>
+        </p>
+        <div class="credits">
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

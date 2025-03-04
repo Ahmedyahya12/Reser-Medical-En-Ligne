@@ -1,0 +1,32 @@
+/* CSS pour désactiver l'élément et afficher un message au survol */
+.sidebar-nav .nav-item.disabled {
+    pointer-events: none; /* Empêche l'interaction avec l'élément */
+    opacity: 0.5; /* Change la transparence pour montrer qu'il est désactivé */
+    color: grey; /* Change la couleur du texte pour le rendre visuellement désactivé */
+}
+
+/* Optionnel : changer l'apparence au survol */
+.sidebar-nav .nav-item.disabled:hover {
+    background-color: transparent; /* Empêche le changement de couleur de fond au survol */
+    cursor: not-allowed; /* Affiche le curseur comme interdit */
+}
+
+/* Optionnel : ajouter du style au tooltip */
+.sidebar-nav .nav-item[title] {
+    position: relative;
+}
+
+.sidebar-nav .nav-item[title]:hover::after {
+    content: attr(title); /* Affiche le texte du tooltip */
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}

@@ -1,0 +1,38 @@
+#navmenue {
+    position: relative;
+    top: 10px;   /* Décalage de 10px depuis le haut de la page */
+    left: 0;     /* Place la navbar à gauche */
+    width: 200px;  /* Largeur de la navbar (vous pouvez ajuster cela) */
+    background-color: #f8f9fa; /* Couleur d'arrière-plan (vous pouvez personnaliser) */
+    padding: 15px; /* Espacement interne pour les éléments de la navbar */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  }
+  
+  #navmenue ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #navmenue ul li {
+    margin: 10px 0; /* Espacement entre les éléments de la liste */
+  }
+  
+  #navmenue ul li a {
+    text-decoration: none;
+    color: #333; /* Couleur du texte */
+    font-size: 16px; /* Taille de la police */
+    padding: 10px;
+    display: block; /* Empêche les liens de s'afficher sur une ligne */
+    transition: background-color 0.3s; /* Transition lors du survol */
+  }
+  
+  #navmenue ul li a:hover {
+    background-color: #007bff; /* Couleur de survol */
+    color: #fff; /* Couleur du texte lors du survol */
+  }
+  
+  .mobile-nav-toggle {
+    display: none; /* Masque l'icône de menu mobile pour les écrans larges */
+  }
+  
