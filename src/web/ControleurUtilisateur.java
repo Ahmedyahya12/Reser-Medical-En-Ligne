@@ -126,6 +126,7 @@ public class ControleurUtilisateur extends HttpServlet {
 			   Utilisateur user=metier.getUser(id);
 			   
 			   user.setId(id);
+			   
 			   request.setAttribute("user", user);
                
 			  
@@ -140,8 +141,7 @@ public class ControleurUtilisateur extends HttpServlet {
 			   String email=request.getParameter("email");
 			   String motPass=request.getParameter("motsPass");
 			   String role=request.getParameter("role");
-			   System.out.println(role);
-			   
+			  
 			   
 			   Utilisateur user=new Utilisateur(id,nom,email,motPass,role);
 			   

@@ -71,7 +71,7 @@
           <input
             type="text"
             name="query"
-            placeholder="Search"
+             placeholder="Chercher par nom, spécialité, ou consultation" 
             title="Enter search keyword"
           />
           <button type="submit" title="Search">
@@ -162,11 +162,11 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Liste des Utilisateurs</h1>
+        <h1>Liste des Doctors</h1>
         <nav>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Users</a></li>
-            <li class="breadcrumb-item active">Liste des utilisateur</li>
+            <li class="breadcrumb-item"><a href="index.html">Doctors</a></li>
+            <li class="breadcrumb-item active">Liste des Doctors</li>
           </ol>
         </nav>
       </div>
@@ -179,103 +179,7 @@
             <div class="row">
             
               <!-- Recent Sales -->
-            <!-- Users Table -->
-              <div class="col-12">
-                <div class="card users-list overflow-auto">
-                  
-                
-
-                  <div class="card-body">
-                   <!-- Title and Search Bar -->
-					    <div class="d-flex justify-content-between align-items-center p-3">
-					      <h5 class="card-title m-0">Liste des Utilisateurs</h5>
-					      <form class="search-form d-flex align-items-center" id="form" method="get" action="<%= request.getContextPath() %>/Admin/chercher.user">
-					        <input type="text" name="motCle"   class="form-control shearch"   placeholder="Chercher par nom, email ou role"  title="Enter search keyword"  value="${model.motCle}"/>
-					        <button type="submit" class="btn btn-primary ms-2" title="Search">
-					          <i class="bi bi-search"></i>
-					        </button>
-					      </form>
-					    </div>
-    <!-- End Title and Search Bar -->
-
-                    <table class="table table-borderless ">
-                      <thead>
-                        <tr >
-                          <th scope="col">Avatar</th>
-                          <th scope="col">Nom Complet</th>
-                          <th scope="col">Email</th>
-                           <th scope="col">MotsPass</th>
-                          <th scope="col">Rôle</th>
-                          <th scope="col">Date de Création</th>
-                         <th scope="col">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <c:forEach var="user" items="${model.users}" >
-                      
-                        <tr >
-                          <th scope="row">
-                            <a href="#"
-                            >
-                            <img style="width: 50px;height: 50px;"
-				              src="assets/img/profile-img.jpg"
-				              alt="Profile"
-				              class="rounded-circle mb-2"
-                            />
-                          </a>
-                          </th>
-                          <td>${user.nom}</td>
-                          <td>${user.email}</td>
-                          <td>
-                          <span class="badge text-bg-danger">${user.motDePasse}</span>
-                          
-                          </td>
-                          
-                          <td>
-                            
-                             <c:choose>
-							        <c:when test="${user.role == 'Admin'}">
-							            <span class="badge bg-primary">${user.role}</span>
-							        </c:when>
-							        <c:when test="${user.role == 'patient'}">
-							            <span class="badge bg-success">${user.role}</span>
-							        </c:when>
-							        <c:when test="${user.role == 'Médecin'}">
-							            <span class="badge bg-warning">${user.role}</span>
-							        </c:when>
-							        <c:otherwise>
-							            <span class="badge bg-secondary">Non défini</span>
-							        </c:otherwise>
-                             </c:choose>
-                         </td>
-                          <td>${user.date_creation}</td>
-                          
-                         <td>
-						   
-						     <a href="<%= request.getContextPath() %>/Admin/modifier.user?id=${user.id}" class="badge text-bg-warning">
-                            <i class="fas fa-edit"></i> Modifier
-                              </a>
-                        
-                        	    <a href="<%= request.getContextPath() %>/Admin/supprime.user?id=${user.id}" class="badge text-bg-danger" onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?');">
-						      <i class="fas fa-trash"></i> Supprimer
-							    </a>
-										
-                         </td>
-                          </tr>
-                        
-                         
-                          
-                        
-                        
-                  </c:forEach>
-                       
-                        
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-<!-- End Users Table -->
+        
               <!-- End Recent Sales -->
               <!-- Doctors Table -->
 <div class="col-12">
@@ -284,8 +188,8 @@
     <!-- Title and Search Bar -->
     <div class="d-flex justify-content-between align-items-center p-3">
       <h5 class="card-title m-0">Liste des Médecins</h5>
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" class="form-control" placeholder="Search" title="Enter search keyword" />
+      <form class="search-form d-flex align-items-center" id="form" method="get" action="<%= request.getContextPath() %>/Admin/chercher.medicin">
+        <input type="text" name="motCle" value="${model.motCle}" class="form-control shearch"   placeholder="Chercher par nom, spécialité, ou consultation"  title="Enter search keyword" />
         <button type="submit" class="btn btn-primary ms-2" title="Search">
           <i class="bi bi-search"></i>
         </button>
@@ -298,7 +202,7 @@
         <thead>
           <tr>
             <th scope="col">Avatar</th>
-            <th scope="col">ID</th>
+         
             <th scope="col">Nom</th>
             <th scope="col">Spécialité</th>
             <th scope="col">Adresse</th>
@@ -306,54 +210,41 @@
             <th scope="col">T. Attente</th>
             <th scope="col"> H. Travail</th>
             <th scope="col">S. Téléphonique</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
+        <c:forEach var="medicin" items="${model.medicins}">
+        
+       
           <tr>
             <th scope="row">
               <a href="#">
                 <img style="width: 50px;height: 50px;" src="assets/img/doctors-1.jpg" alt="Profile" class="rounded-circle mb-2" />
               </a>
             </th>
-            <td>1</td>
-            <td>Dr. Karim Ben</td>
-            <td>Cardiologie</td>
-            <td>Paris, France</td>
-            <td><span class="badge bg-info">$50</span></td> 
-            <td>15 min</td>
-            <td><span class="badge bg-success">08h - 17h</span></td>
-            <td>Oui</td>
+           
+            <td>${medicin.name}</td>
+            <td>${medicin.specialite}</td>
+            <td>${medicin.adresse}</td>
+            <td><span class="badge bg-danger">${medicin.consultation}MRU</span></td> 
+            <td>${medicin.tempsAttente}</td>
+            <td><span class="badge bg-success">${medicin.heuresTravail}</span></td>
+            <td>${medicin.seanceTelephonique} </td>
+            <td>
+						   
+              <a href="<%= request.getContextPath() %>/Admin/modifier.medicin?id=${medicin.id}" class="badge text-bg-warning">
+                         <i class="fas fa-edit"></i> Modifier
+                           </a>
+                     
+                           <a href="<%= request.getContextPath() %>/Admin/supprime.medicin?id=${medicin.id}" class="badge text-bg-danger" onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?');">
+               <i class="fas fa-trash"></i> Supprimer
+               </a>
+                 
+                      </td>
           </tr>
-          <tr>
-            <th scope="row">
-              <a href="#">
-                <img style="width: 50px;height: 50px;" src="assets/img/Doctor.png" alt="Profile" class="rounded-circle mb-2" />
-              </a>
-            </th>
-            <td>2</td>
-            <td>Dr. Amine Khaled</td>
-            <td>Dermatologie</td>
-            <td>Lyon, France</td>
-            <td >60€</td>
-            <td>10 min</td>
-            <td>8h - 16h</td>
-            <td>Non</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <a href="#">
-                <img style="width: 50px;height: 50px;" src="assets/img/doctors-3.jpg" alt="Profile" class="rounded-circle mb-2" />
-              </a>
-            </th>
-            <td>3</td>
-            <td>Dr. Sophie Martin</td>
-            <td>Gynécologie</td>
-            <td>Marseille, France</td>
-            <td>55€</td>
-            <td>20 min</td>
-            <td>10h - 18h</td>
-            <td>Oui</td>
-          </tr>
+          
+          </c:forEach>
         </tbody>
       </table>
     </div>
@@ -509,8 +400,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-    
-     <script type="text/javascript">
+    <script type="text/javascript">
     
   
     
@@ -529,7 +419,7 @@
     	
 
 
-
+    
     
     
     </script>

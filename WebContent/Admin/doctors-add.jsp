@@ -132,9 +132,7 @@
 			        
 			        <span>Sign Out</span>
 			     </a>
-			          
-			           
-
+			         
 			           
 			        </button>
 			 
@@ -164,7 +162,7 @@
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Doctors</a></li>
-            <li class="breadcrumb-item active">Modifie des Dotors</li>
+            <li class="breadcrumb-item active">Ajouter des Medecin</li>
           </ol>
         </nav>
       </div>
@@ -181,99 +179,128 @@
     
                     <!-- User Registration Section -->
                     <div class="container section-title" data-aos="fade-up">
-                      <h2>Modifie un  Doctor</h2>
+                      <h2>Ajouter un Nouvel Medecin</h2>
                       <p>
-                        Remplissez les informations ci-dessous pour modifie un  Medecin à notre système.
+                        Remplissez les informations ci-dessous pour ajouter un nouvel Medecin à notre système.
                       </p>
                     </div>
     
                     <div class="container" data-aos="fade-up" data-aos-delay="100">
                       <form
-                        action="<%= request.getContextPath() %>/Admin/SaveUser.user"
-                        method="post"
-                        role="form"
-                        class="php-email-form"
-                      >
-                        <div class="row">
-                          
-                          <div class="col-md-4 form-group">
-                            <input
-                              type="text"
-                              name="nomComplet"
-                              class="form-control"
-                              id="nomComplet"
-                             
-                              placeholder="Nom Complet"
-                              required=""
-                              
-                              value=${user.nom}
-                            />
-                          </div>
-                          
-                          <div class="col-md-4 form-group mt-3 mt-md-0">
-                            <input
-                              type="email"
-                              class="form-control"
-                              name="email"
-                              id="email"
-                              value=${user.email}
-                              placeholder="Email"
-                              required=""
-                            />
-                          </div>
-                          
-                           <div class="col-md-4 form-group">
-                            <input
-                              type="password"
-                              name="motsPass"
-                              class="form-control"
-                              id="nomComplet"
-                             
-                              placeholder="Password"
-                              required=""
-                              
-                              value=${user.motDePasse}
-                            />
-                          </div>
-                         
+                      action="<%= request.getContextPath() %>/Admin/doctor-add.medicin"
+                      method="post"
+                      role="form"
+                      class="php-email-form"
+                    >
+                      <div class="row">
+                        <!-- Nom du Médecin -->
+                        <div class="col-md-4 form-group">
+                          <input
+                            type="text"
+                            name="nom"
+                            class="form-control"
+                            id="nom"
+                            placeholder="Nom Complet"
+                            required
+                          />
                         </div>
-                        <div class="row">
-                         <div class="col-md-4 form-group mt-3">
-							  <select name="role" id="role" class="form-select" required>
-							    <option value="patient" ${user.role == 'patient' ? 'selected' : ''}>patient</option>
-							    <option value="Admin" ${user.role == 'admin' ? 'selected' : ''}>admin</option>
-							    <option value="Médecin" ${user.role == 'medecin' ? 'selected' : ''}>medecin</option>
-							  </select>
-                          </div>
-                       
-                          <div class="col-md-4 form-group mt-3">
-                            <span id="roleBadge" class="badge"></span>
-                          </div>
+                    
+                        <!-- Sélectionner la Spécialité -->
+                        <div class="col-md-4 form-group">
+                          <select name="specialite" class="form-control" id="specialite" required>
+                            <option value="">Choisissez une spécialité</option>
+                            <option value="Cardiologue">Cardiologue</option>
+                            <option value="Dermatologue">Dermatologue</option>
+                            <option value="Généraliste">Généraliste</option>
+                            <option value="Pédiatre">Pédiatre</option>
+                            <option value="Dentiste">Dentiste</option>
+                            <option value="Ophtalmologiste">Ophtalmologiste</option>
+                            <option value="Neurologue">Neurologue</option>
+                            <option value="Psychiatre">Psychiatre</option>
+                            <option value="Chirurgien">Chirurgien</option>
+                            <option value="Orthopédiste">Orthopédiste</option>
+                            <option value="Médecin du sport">Médecin du sport</option>
+                            <option value="Endocrinologue">Endocrinologue</option>
+                            <option value="Anesthésiste">Anesthésiste</option>
+                            <option value="Gynécologue">Gynécologue</option>
+                            <option value="Urologue">Urologue</option>
+                          </select>
                         </div>
-                         
-                         <div class="col-md-4 form-group">
-                            <input
-                              type="hidden"
-                              name="id"
-                              class="form-control"
-                              id="nomComplet"
-                             
-                              placeholder="Id"
-                              required=""
-                              
-                              value=${user.id}
-                            />
-                          </div>
-                       
-    
-                        <div class="mt-3">
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-primary">
-                              Modifie l'Utilisateur
-                            </button>
-                          </div>
+                      </div>
+                    
+                      <div class="row">
+                        <!-- Adresse -->
+                        <div class="col-md-4 form-group mt-3">
+                          <input
+                            type="text"
+                            name="adresse"
+                            class="form-control"
+                            id="adresse"
+                            placeholder="Adresse"
+                            required
+                          />
                         </div>
-                      </form>
+                    
+                        <!-- Consultation (prix ou type de consultation) -->
+                        <div class="col-md-4 form-group mt-3">
+                          <input
+                            type="number"
+                            name="consultation"
+                            class="form-control"
+                            id="consultation"
+                            placeholder="Consultation"
+                            required
+                          />
+                        </div>
+                    
+                        <!-- Sélectionner le Temps d'Attente -->
+                        <div class="col-md-4 form-group mt-3">
+                          <select name="tempsAttente" class="form-control" id="tempsAttente" required>
+                            <option value="">Choisissez un temps d'attente</option>
+                            <option value="15 minutes">15 minutes</option>
+                            <option value="30 minutes">30 minutes</option>
+                            <option value="45 minutes">45 minutes</option>
+                            <option value="1 heure">1 heure</option>
+                            <option value="1h 30min">1h 30min</option>
+                          </select>
+                        </div>
+                      </div>
+                    
+                      <div class="row">
+                        <!-- Sélectionner les Heures de Travail -->
+                        <div class="col-md-4 form-group mt-3">
+                          <select name="heuresTravail" class="form-control" id="heuresTravail" required>
+                            <option value="">Choisissez les heures de travail</option>
+                            <option value="08:00 - 12:00">08:00 - 12:00</option>
+                            <option value="12:00 - 16:00">12:00 - 16:00</option>
+                            <option value="16:00 - 20:00">16:00 - 20:00</option>
+                            <option value="08:00 - 18:00">08:00 - 18:00</option>
+                            <option value="09:00 - 17:00">09:00 - 17:00</option>
+                          </select>
+                        </div>
+                    
+                        <!-- Séances Téléphoniques -->
+                        <div class="col-md-4 form-group mt-3">
+                          <input
+                            type="text"
+                            name="seanceTelephonique"
+                            class="form-control"
+                            id="seanceTelephonique"
+                            placeholder="Séance Téléphonique (ex: +222xxxxx)"
+                            required
+                          />
+                        </div>
+                      </div>
+                    
+                      <div class="mt-3">
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-primary">
+                            Ajouter le Médecin
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    
                     </div>
                     <!-- /User Registration Section -->
     
@@ -309,11 +336,31 @@
     <script src="assets/vendor/quill/quill.js"></script>
     <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-   
+    
+
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script type="text/javascript">
 
+       // Change badge color based on role selected
+  document.getElementById('role').addEventListener('change', function () {
+    var role = this.value;
+    var badge = document.getElementById('roleBadge');
+    if (role === 'patient') {
+      badge.textContent = 'Patient';
+      badge.className = 'badge bg-success';
+    } else if (role === 'Admin') {
+      badge.textContent = 'Admin';
+      badge.className = 'badge bg-danger';
+    } else if (role === 'Médecin') {
+      badge.textContent = 'Médecin';
+      badge.className = 'badge bg-info';
+    } else {
+      badge.textContent = '';
+      badge.className = '';
+    }
+  });
+  oninput
     </script>
   </body>
 </html>

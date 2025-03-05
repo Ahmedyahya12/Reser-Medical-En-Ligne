@@ -17,12 +17,12 @@
             </a>
             <ul id="doctors-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="doctors-list.html">
+                    <a href="<%= request.getContextPath() %>/Admin/doctors-list.medicin">
                         <i class="bi bi-list-ul"></i><span>Doctors List</span>
                     </a>
                 </li>
                 <li>
-                    <a href="doctors-add.html">
+                    <a href="doctors-add.jsp">
                         <i class="bi bi-person-plus"></i><span>Add New Doctor</span>
                     </a>
                 </li>

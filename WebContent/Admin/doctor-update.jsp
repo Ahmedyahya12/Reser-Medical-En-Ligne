@@ -163,8 +163,8 @@
         <h1>Ajouter des Utilisateurs</h1>
         <nav>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Doctors</a></li>
-            <li class="breadcrumb-item active">Modifie des Dotors</li>
+            <li class="breadcrumb-item"><a href="index.html">Utilisateurs</a></li>
+            <li class="breadcrumb-item active">Modifie des Utilisateurs</li>
           </ol>
         </nav>
       </div>
@@ -181,99 +181,139 @@
     
                     <!-- User Registration Section -->
                     <div class="container section-title" data-aos="fade-up">
-                      <h2>Modifie un  Doctor</h2>
+                      <h2>Modifie un  Utilisateur</h2>
                       <p>
-                        Remplissez les informations ci-dessous pour modifie un  Medecin à notre système.
+                        Remplissez les informations ci-dessous pour modifie un  utilisateur à notre système.
                       </p>
                     </div>
     
                     <div class="container" data-aos="fade-up" data-aos-delay="100">
                       <form
-                        action="<%= request.getContextPath() %>/Admin/SaveUser.user"
-                        method="post"
-                        role="form"
-                        class="php-email-form"
-                      >
-                        <div class="row">
-                          
+                      action="<%= request.getContextPath() %>/Admin/SaveMedecin.medicin"
+                      method="post"
+                      role="form"
+                      class="php-email-form"
+                  >
+                      <div class="row">
+                        
+                  
+                          <!-- Nom du Médecin -->
                           <div class="col-md-4 form-group">
-                            <input
-                              type="text"
-                              name="nomComplet"
-                              class="form-control"
-                              id="nomComplet"
-                             
-                              placeholder="Nom Complet"
-                              required=""
-                              
-                              value=${user.nom}
-                            />
+                              <input
+                                  type="text"
+                                  name="nom"
+                                  class="form-control"
+                                  id="nom"
+                                  placeholder="Nom Complet"
+                                  required
+                                  value="${medecin.name}"
+                              />
                           </div>
-                          
-                          <div class="col-md-4 form-group mt-3 mt-md-0">
-                            <input
-                              type="email"
-                              class="form-control"
-                              name="email"
-                              id="email"
-                              value=${user.email}
-                              placeholder="Email"
-                              required=""
-                            />
+                  
+                          <!-- Spécialité -->
+                          <div class="col-md-4 form-group">
+                              <input
+                                  type="text"
+                                  name="specialite"
+                                  class="form-control"
+                                  id="specialite"
+                                  placeholder="Spécialité"
+                                  required
+                                  value="${medecin.specialite}"
+                              />
                           </div>
-                          
-                           <div class="col-md-4 form-group">
-                            <input
-                              type="password"
-                              name="motsPass"
-                              class="form-control"
-                              id="nomComplet"
-                             
-                              placeholder="Password"
-                              required=""
-                              
-                              value=${user.motDePasse}
-                            />
-                          </div>
-                         
-                        </div>
-                        <div class="row">
-                         <div class="col-md-4 form-group mt-3">
-							  <select name="role" id="role" class="form-select" required>
-							    <option value="patient" ${user.role == 'patient' ? 'selected' : ''}>patient</option>
-							    <option value="Admin" ${user.role == 'admin' ? 'selected' : ''}>admin</option>
-							    <option value="Médecin" ${user.role == 'medecin' ? 'selected' : ''}>medecin</option>
-							  </select>
-                          </div>
-                       
+                      </div>
+                  
+                      <div class="row">
+                          <!-- Adresse -->
                           <div class="col-md-4 form-group mt-3">
-                            <span id="roleBadge" class="badge"></span>
+                              <input
+                                  type="text"
+                                  name="adresse"
+                                  class="form-control"
+                                  id="adresse"
+                                  placeholder="Adresse"
+                                  required
+                                  value="${medecin.adresse}"
+                              />
                           </div>
-                        </div>
+                  
+                          <!-- Consultation (prix ou type de consultation) -->
+                          <div class="col-md-4 form-group mt-3">
+                              <input
+                                  type="number"
+                                  name="consultation"
+                                  class="form-control"
+                                  id="consultation"
+                                  placeholder="Type de Consultation"
+                                  required
+                                  value="${medecin.consultation}"
+                              />
+                          </div>
+                  
+                          <!-- Temps d'Attente -->
+                          <div class="col-md-4 form-group mt-3">
+                              <input
+                                  type="text"
+                                  name="tempsAttente"
+                                  class="form-control"
+                                  id="tempsAttente"
+                                  placeholder="Temps d'attente (minutes)"
+                                  required
+                                  value="${medecin.tempsAttente}"
+                              />
+                          </div>
+                      </div>
+                  
+                      <div class="row">
+                          <!-- Heures de Travail -->
+                          <div class="col-md-4 form-group mt-3">
+                              <input
+                                  type="text"
+                                  name="heuresTravail"
+                                  class="form-control"
+                                  id="heuresTravail"
+                                  placeholder="Horaires de Travail (ex: 08:00 - 18:00)"
+                                  required
+                                  value="${medecin.heuresTravail}"
+                              />
+                          </div>
+                  
+                          <!-- Séances Téléphoniques -->
+                          <div class="col-md-4 form-group mt-3">
+                              <input
+                                  type="text"
+                                  name="seanceTelephonique"
+                                  class="form-control"
+                                  id="seanceTelephonique"
+                                  placeholder="Séance Téléphonique (ex: Oui / Non)"
+                                  required
+                                  value="${medecin.seanceTelephonique}"
+                              />
+                          </div>
+                  
                          
-                         <div class="col-md-4 form-group">
-                            <input
+                      </div>
+                        <!-- Champ ID (caché) -->
+                        <div class="col-md-4 form-group">
+                          <input
                               type="hidden"
                               name="id"
                               class="form-control"
-                              id="nomComplet"
-                             
-                              placeholder="Id"
-                              required=""
-                              
-                              value=${user.id}
-                            />
-                          </div>
-                       
-    
-                        <div class="mt-3">
+                              id="id"
+                              value="${medecin.id}"
+                          />
+                      </div>
+                  
+                      <div class="mt-3">
                           <div class="text-center">
-                            <button type="submit" class="btn btn-primary">
-                              Modifie l'Utilisateur
-                            </button>
+                              <button type="submit" class="btn btn-primary">
+                                  Modifier le Médecin
+                              </button>
                           </div>
-                        </div>
-                      </form>
+                      </div>
+                  </form>
+                  
                     </div>
                     <!-- /User Registration Section -->
     

@@ -133,7 +133,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
 	@Override
 	public List<Utilisateur> CherCherUtlisParMc(String motCle) {
-List<Utilisateur> users =new ArrayList<Utilisateur>();
+       List<Utilisateur> users =new ArrayList<Utilisateur>();
 	    
 	    Connection conn=SingletonConnection.getConnection();
 	    
