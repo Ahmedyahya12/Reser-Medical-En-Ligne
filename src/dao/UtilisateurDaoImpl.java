@@ -59,6 +59,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 		         user.setNom(rs.getString("nom"));
 		         user.setEmail(rs.getString("email"));
 		         user.setMotDePasse(rs.getString("mot_de_passe"));
+		         user.setId(rs.getInt("id"));
+		         user.setRole(rs.getString("role"));
 			}
 			
 		} catch (SQLException e) {

@@ -144,7 +144,8 @@ public class MedecinDaoImpl  implements MedecinDao{
 		            medicin.setTempsAttente(rs.getString("tempsAttente"));
 		            medicin.setHeuresTravail(rs.getString("heuresTravail"));
 		            medicin.setSeanceTelephonique(rs.getString("seanceTelephonique"));
-		            medicin.setId(rs.getInt(id));
+		            medicin.setId(rs.getInt("id"));
+		            
 			}
 			
 		} catch (SQLException e) {
@@ -208,6 +209,37 @@ public class MedecinDaoImpl  implements MedecinDao{
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	}
+
+
+	@Override
+	public List<Medecin> AffiAttrMedicns() {
+		 List<Medecin> medicins = new ArrayList<>();
+
+		    Connection conn = SingletonConnection.getConnection();
+		    String sql = "SELECT id,name,specialite,consultation FROM medecin"; 
+
+		    try {
+		        PreparedStatement ps = conn.prepareStatement(sql);
+		        ResultSet rs = ps.executeQuery();
+
+		        while (rs.next()) {
+		            Medecin medicin = new Medecin();
+		            
+		            medicin.setId(rs.getInt("id"));
+		            medicin.setName(rs.getString("name"));
+		            medicin.setSpecialite(rs.getString("specialite"));
+		            medicin.setConsultation(rs.getDouble("consultation"));
+		           
+
+		            medicins.add(medicin);
+		        }
+
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    
+		    return medicins;
 	}
 
 

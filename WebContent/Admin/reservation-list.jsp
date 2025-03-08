@@ -160,11 +160,11 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Reservation</h1>
         <nav>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item"><a href="index.html">Reservation</a></li>
+            <li class="breadcrumb-item active">Liste de reservation</li>
           </ol>
         </nav>
       </div>
@@ -185,169 +185,101 @@
 
                   <div class="card-body">
                    <!-- Title and Search Bar -->
-    <div class="d-flex justify-content-between align-items-center p-3">
-      <h5 class="card-title m-0">Liste des Utilisateurs</h5>
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" class="form-control" placeholder="Search" title="Enter search keyword" />
-        <button type="submit" class="btn btn-primary ms-2" title="Search">
-          <i class="bi bi-search"></i>
-        </button>
-      </form>
-    </div>
+                  <div class="d-flex justify-content-between align-items-center p-3">
+                    <h5 class="card-title m-0">Liste des Reservation</h5>
+                    <form class="search-form d-flex align-items-center" method="POST" action="#">
+                      <input type="text" name="query" class="form-control" placeholder="Search" title="Enter search keyword" />
+                      <button type="submit" class="btn btn-primary ms-2" title="Search">
+                        <i class="bi bi-search"></i>
+                      </button>
+                    </form>
+                  </div>
     <!-- End Title and Search Bar -->
-    <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th>Symbole</th>
-          <th scope="col">Code</th>
-      <th scope="col">Date Res.</th>
-      <th scope="col">Patient</th>
-      <th scope="col">Email</th>
-      <th scope="col">Médecin</th>
-      <th scope="col">Statut</th>
-      <th scope="col">Créé le</th>
-      <th scope="col">Message</th>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          
-          <th scope="row">
-            <a href="#"
-            >
-            <img style="width: 50px;height: 50px;"
-src="assets/img/reservation.jpg"
-alt="Profile"
-class="rounded-circle mb-2"
-/>
-          </a>
-          </th>
-          <td>RES12345</td>
-          <td>2025-03-05</td>
-          <td><span class="badge bg-primary">Mohamed Ali</span></td>
-          <td>mohamed.ali@example.com</td>
-          <td>Dr. Karim Ben</td>
-          <td><span class="badge bg-success">Confirmée</span></td>
-          <td>2025-03-01</td>
-          <td>Besoin d'une consultation pour des douleurs au dos.</td>
-        </tr>
-        <tr>
-          <th scope="row">
-            <a href="#"
-            >
-            <img style="width: 50px;height: 50px;"
-src="assets/img/profile-img.jpg"
-alt="Profile"
-class="rounded-circle mb-2"
-/>
-          </a>
-          </th>
-          <td>RES12346</td>
-          <td>2025-03-06</td>
-          <td><span class="badge bg-primary">Sophie Dupont</span></td>
-          <td>sophie.dupont@example.com</td>
-          <td>Dr. Amine Khaled</td>
-          <td><span class="badge bg-warning">En attente</span></td>
-          <td>2025-03-02</td>
-          <td>Consultation de suivi pour le traitement en cours.</td>
-        </tr>
-        <!-- Ajoutez d'autres lignes de réservation ici -->
-      </tbody>
-    </table>
-    
+				    <table class="table table-borderless">
+				      <thead>
+				        <tr>
+				          <th>Symbole</th>
+				          <th scope="col">Code</th>
+				      <th scope="col">Date Res.</th>
+				      <th scope="col">Patient</th>
+				      <th scope="col">Email</th>
+				      <th scope="col">Médecin</th>
+				      <th scope="col">Statut</th>
+				      <th scope="col">Créé le</th>
+				      <th scope="col">Message</th>
+				      <th>Actions</th>
+				      
+				
+				        </tr>
+				      </thead>
+				      <tbody>
+				      <c:forEach var="reservation" items="${reservations}">
+				      
+				        <tr>
+				          
+				          <th scope="row">
+				            <a href="#"
+				            >
+				            <img style="width: 50px;height: 50px;"
+								src="assets/img/reservation.jpg"
+								alt="Profile"
+								class="rounded-circle mb-2"
+				            />
+				          </a>
+				          </th>
+				          <td>RES- ${reservation.id}</td>
+				          <td>${reservation.dateReservation}</td>
+				          <td><span class="badge bg-primary">${reservation.utilisateur.nom}</span></td>
+				          <td>${reservation.utilisateur.email}</td>
+				          <td>${reservation.medecin.name}</td>
+				          
+				        <td>
+						     <c:choose>
+					   
+					    <c:when test="${reservation.statut == 'en attente'}">
+					        <span class="badge bg-warning">${reservation.statut}</span>
+					    </c:when>
+					
+					    
+					    <c:when test="${reservation.statut == 'confirme'}">
+					        <span class="badge bg-success">${reservation.statut}</span>
+					    </c:when>
+					
+					
+					    <c:when test="${reservation.statut == 'annule'}">
+					        <span class="badge bg-danger">${reservation.statut}</span>
+					    </c:when>
+					
+					   
+					    <c:otherwise>
+					        <span class="badge bg-secondary">${reservation.statut}</span>
+					    </c:otherwise>
+                     </c:choose>
+						     
+                          </td>
 
-                    <table class="table table-borderless ">
-                      <thead>
-                        <tr >
-                          <th scope="col">Avatar</th>
-                          <th scope="col">Nom Complet</th>
-                          <th scope="col">Email</th>
-                          <th scope="col">Rôle</th>
-                          <th scope="col">Date de Création</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr >
-                          <th scope="row">
-                            <a href="#"
-                            >
-                            <img style="width: 50px;height: 50px;"
-              src="assets/img/profile-img.jpg"
-              alt="Profile"
-              class="rounded-circle mb-2"
-            />
-                          </a>
-                          </th>
-                          <td>Mohamed Ali</td>
-                          <td>mohamed.ali@example.com</td>
-                          <td><span class="badge bg-primary">Patient</span></td>
-                          <td>2024-03-01</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                            >
-                            <img style="width: 50px;height: 50px;"
-              src="assets/img/profile-img.jpg"
-              alt="Profile"
-              class="rounded-circle mb-2"
-            />
-                          </a>
-                          </th>
-                          <td>Sophie Dupont</td>
-                          <td>sophie.dupont@example.com</td>
-                          <td><span class="badge bg-danger">Admin</span></td>
-                          <td>2023-11-15</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                            >
-                            <img style="width: 50px;height: 50px;"
-              src="assets/img/profile-img.jpg"
-              alt="Profile"
-              class="rounded-circle mb-2"
-            />
-                          </a>
-                          </th>
-                          <td>Dr. Karim Ben</td>
-                          <td>karim.ben@example.com</td>
-                          <td><span class="badge bg-success">Médecin</span></td>
-                          <td>2024-01-20</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                            >
-                            <img style="width: 50px;height: 50px;"
-              src="assets/img/profile-img.jpg"
-              alt="Profile"
-              class="rounded-circle mb-2"
-            />
-                          </a>
-                          </th>
-                          <td>Fatima Zahra</td>
-                          <td>fatima.zahra@example.com</td>
-                          <td><span class="badge bg-primary">Patient</span></td>
-                          <td>2024-02-10</td>
-                        </tr>
-                        <tr >
-                          <th scope="row"> <a href="#"
-                            >
-                            <img style="width: 50px;height: 50px;"
-              src="assets/img/profile-img.jpg"
-              alt="Profile"
-              class="rounded-circle mb-2"
-            />
-                          </a></th>
-                          <td>Dr. Amine Khaled</td>
-                          <td>amine.khaled@example.com</td>
-                          <td><span class="badge bg-success">Médecin</span></td>
-                          <td>2024-02-10</td>
-                        </tr>
-                      </tbody>
-                    </table>
+				          
+					   <td>${reservation.dateCreation}</td>
+				          <td>${reservation.message}</td>
+				          
+				           <td>
+						   
+						     <a href="<%= request.getContextPath() %>/Admin/modifier.res?id=${reservation.id}" class="badge text-bg-warning">
+                            <i class="fas fa-edit"></i> Modifier
+                              </a>
+                        
+                        	    <a href="<%= request.getContextPath() %>/Admin/supprime.res?id=${reservation.id}" class="badge text-bg-danger" onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?');">
+						      <i class="fas fa-trash"></i> Supprimer
+							    </a>
+										
+                         </td>
+				        </tr>
+				       </c:forEach>
+				        <!-- Ajoutez d'autres lignes de réservation ici -->
+				      </tbody>
+				    </table>
+				    
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@
         </li>
         <!-- End Dashboard Nav -->
 
-        <!-- Médecins -->
+        <!-- Mï¿½decins -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#doctors-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-person-bounding-box"></i><span>Doctors</span>
@@ -30,15 +30,15 @@
         </li>
         <!-- End Doctors Nav -->
 
-        <!-- Réservations -->
+        <!-- Rï¿½servations -->
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#reservations-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-target="#reservations-nav" data-bs-toggle="collapse" href="">
                 <i class="bi bi-calendar-check"></i><span>Reservations</span>
                 <i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="reservations-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="reservations-list.html">
+                    <a href="<%= request.getContextPath()%>/Admin/reserv-list.res">
                         <i class="bi bi-list-check"></i><span>Reservations List</span>
                     </a>
                 </li>
@@ -48,8 +48,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="reservations-history.html">
-                        <i class="bi bi-clock-history"></i><span>Reservation History</span>
+                    <a href="<%= request.getContextPath() %>/Admin/form-add.res">
+                        <i class="bi bi-clock-history"></i><span>Ajouter Reservation</span>
                     </a>
                 </li>
             </ul>
@@ -77,9 +77,9 @@
         </li>
         <!-- End Users Nav -->
 
-        <!-- Déconnexion -->
+        <!-- Dï¿½connexion -->
         <li class="nav-item">
-            <a onclick="return confirm('Êtes-vous sûr de vous déconnecter ?')" 
+            <a onclick="return confirm('ï¿½tes-vous sï¿½r de vous dï¿½connecter ?')" 
                class="nav-link collapsed" href="<%= request.getContextPath() %>/logout.user">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Logout</span>

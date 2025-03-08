@@ -52,6 +52,7 @@
   </head>
 
   <body>
+    
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="d-flex align-items-center justify-content-between">
@@ -216,6 +217,7 @@
         <tbody>
         <c:forEach var="medicin" items="${model.medicins}">
         
+ 
        
           <tr>
             <th scope="row">
@@ -223,6 +225,7 @@
                 <img style="width: 50px;height: 50px;" src="assets/img/doctors-1.jpg" alt="Profile" class="rounded-circle mb-2" />
               </a>
             </th>
+
            
             <td>${medicin.name}</td>
             <td>${medicin.specialite}</td>

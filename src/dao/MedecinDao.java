@@ -8,18 +8,15 @@ import entities.Utilisateur;
 public interface MedecinDao {
 
 	
-
-	
 	public Medecin AjouterMedicin(Medecin medecin);
-
 	
 	public List<Medecin> AfficherMedicns();
+	
+	public List<Medecin> AffiAttrMedicns();
 	
 	public List<Medecin> ChercherMedecinParMc(String motCle);
 	
 	public Medecin getMedicin(int id);
-	
-	
 	
 	public void SupprimeMedicin(int id);
 	

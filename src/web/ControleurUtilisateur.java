@@ -73,7 +73,14 @@ public class ControleurUtilisateur extends HttpServlet {
 			        session.setAttribute("user", user);
 			        System.out.println("User connecté: " + user.getNom());
 //			        response.sendRedirect("Admin/index.jsp?name="+ user.getNom() +"&status=succes");
-			        response.sendRedirect("Admin/index.jsp");
+			        if ( user.getRole().equals("patient")) {
+			        	response.sendRedirect("index.jsp");
+			        	
+			        }else {
+			        	  response.sendRedirect("Admin/index.jsp");
+			        }
+			      
+			        
 //			        respone("Admin/index.html").forward(request, response);
 			    } else {
 			        System.out.println("Échec de la connexion.");
@@ -85,7 +92,8 @@ public class ControleurUtilisateur extends HttpServlet {
 			 HttpSession session = request.getSession(); // Ne crée pas de nouvelle session
 			  
 			 session.invalidate(); // Détruit la session si elle existe
-			    
+			 
+			 
 			    
 			  response.sendRedirect(request.getContextPath() +"/login.jsp");
 		 }else  if (path.equals("/Admin/user_list.user") && request.getMethod().equals("GET")) {
@@ -98,7 +106,7 @@ public class ControleurUtilisateur extends HttpServlet {
 		        model.setUsers(users);
 		       
 		      	request.setAttribute("model", model);
-			 
+			     
 			    request.getRequestDispatcher("users-list.jsp").forward(request, response);
 				     
 		}else if (path.equals("/Admin/chercher.user") && request.getMethod().equals("GET")) {
@@ -146,6 +154,7 @@ public class ControleurUtilisateur extends HttpServlet {
 			   Utilisateur user=new Utilisateur(id,nom,email,motPass,role);
 			   
 			   
+			   
                metier.ModifieUtilsateur(user);
 			   
                
@@ -178,7 +187,7 @@ public class ControleurUtilisateur extends HttpServlet {
 				   int id=Integer.parseInt(request.getParameter("id"));
 				 
 				   
-				   
+				 
 	               metier.SupprimeUtilisateur(id);
 				   
 	               
