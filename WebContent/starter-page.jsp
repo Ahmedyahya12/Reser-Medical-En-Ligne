@@ -1,8 +1,15 @@
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <title>Doc-Res</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -44,172 +51,65 @@
   </head>
 
   <body class="index-page">
-    <header id="header" class="header sticky-top">
-    
-
-      <div class="branding d-flex align-items-center">
-        <div
-          class="container position-relative d-flex align-items-center justify-content-between"
-        >
-          <a href="doctors.html" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1 class="sitename">Doc-Res</h1>
-          </a>
-
-          <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="doctors.html">Doctors</a></li>
-              <li><a href="posts.html">posts</a></li>
-              <li><a href="reservation.html">Reservation</a></li>
-              <li><a class="active" href="reserver_vous_med.html">Reserver vous medicaux</a></li>
-             
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-
-          <a class="cta-btn d-none d-sm-block" href="#appointment"
-            >Reserver vous medicaux</a
-          >
-        </div>
-      </div>
-    </header>
-
+    <%@include file="components/nav.jsp" %>
     <main class="main">
-      <!-- Hero Section -->
-      <section id="hero" class="hero section light-background" style="padding-top: 1px;">
-        
-               <!-- Appointment Section -->
-      <section id="appointment" class="appointment section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Réservez votre rendez-vous médical</h2>
-          <p>
-            Trouvez le médecin de votre choix et réservez facilement votre
-            consultation en quelques étapes.
-          </p>
-        </div>
-        <!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <form
-            action="forms/appointment.php"
-            method="post"
-            role="form"
-            class="php-email-form"
-          >
-            <div class="row">
-              <div class="col-md-4 form-group">
-                <input
-                  type="text"
-                  name="name"
-                  class="form-control"
-                  id="name"
-                  placeholder="Votre Nom"
-                  required=""
-                />
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+          <div class="heading">
+              <div class="container">
+                  <div class="row d-flex justify-content-center text-center">
+                      <div class="col-lg-8">
+                          <h1>Prise de Rendez-vous en Ligne</h1>
+                          <p class="mb-0">
+                              Simplifiez votre quotidien avec notre plateforme de prise de rendez-vous en ligne. 
+                              Trouvez rapidement un professionnel de santé, un consultant ou un prestataire de service, 
+                              et réservez en quelques clics. 
+                          </p>
+                      </div>
+                  </div>
               </div>
-              <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  id="email"
-                  placeholder="Votre Email"
-                  required=""
-                />
+          </div>
+          <nav class="breadcrumbs">
+              <div class="container">
+                  <ol>
+                      <li><a href="index.html">Accueil</a></li>
+                      <li class="current">Rendez-vous en Ligne</li>
+                  </ol>
               </div>
-              <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input
-                  type="tel"
-                  class="form-control"
-                  name="phone"
-                  id="phone"
-                  placeholder="Votre Téléphone"
-                  required=""
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4 form-group mt-3">
-                <input
-                  type="datetime-local"
-                  name="date"
-                  class="form-control datepicker"
-                  id="date"
-                  placeholder="Date de rendez-vous"
-                  required=""
-                />
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select
-                  name="department"
-                  id="department"
-                  class="form-select"
-                  required=""
-                >
-                  <option value="">Choisir le département</option>
-                  <option value="Cardiologie">Cardiologie</option>
-                  <option value="Dermatologie">Dermatologie</option>
-                  <option value="Pédiatrie">Pédiatrie</option>
-                  <!-- Ajoutez d'autres départements selon vos besoins -->
-                </select>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select
-                  name="doctor"
-                  id="doctor"
-                  class="form-select"
-                  required=""
-                >
-                  <option value="">Choisir un médecin</option>
-                  <option value="Dr. Jean">Dr. Jean</option>
-                  <option value="Dr. Marie">Dr. Marie</option>
-                  <option value="Dr. Pierre">Dr. Pierre</option>
-                  <!-- Ajoutez d'autres médecins selon vos besoins -->
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group mt-3">
-              <textarea
-                class="form-control"
-                name="message"
-                rows="5"
-                placeholder="Message (optionnel)"
-              ></textarea>
-            </div>
-            <div class="mt-3">
-              <div class="loading">Chargement...</div>
-              <div class="error-message"></div>
-              <div class="sent-message">
-                Votre demande de rendez-vous a été envoyée avec succès. Merci !
-              </div>
-              <div class="text-center">
-                <!-- Bouton de soumission personnalisé -->
-                <button type="submit" class="btn btn-primary">
-                  Réserver votre rendez-vous médical
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-      <!-- /Appointment Section -->
-          
-      </section>
-      <!-- /Hero Section -->
-
-   
-
+          </nav>
+      </div><!-- End Page Title -->
   
-        
-
-    
-     
-    </main>
+      <!-- Starter Section Section -->
+      <section id="starter-section" class="starter-section section">
+  
+          <!-- Section Title -->
+          <div class="container section-title" data-aos="fade-up">
+              <h2>Comment ça marche ?</h2>
+              <p>Réservez votre rendez-vous en seulement 3 étapes simples.</p>
+          </div><!-- End Section Title -->
+  
+          <div class="container" data-aos="fade-up">
+              <div class="row text-center">
+                  <div class="col-md-4">
+                      <h3>🔍 Trouvez un professionnel</h3>
+                      <p>Recherchez parmi nos spécialistes disponibles et choisissez celui qui vous convient.</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h3>📅 Choisissez une date</h3>
+                      <p>Sélectionnez un créneau horaire qui vous arrange et confirmez votre rendez-vous.</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h3>✅ Recevez une confirmation</h3>
+                      <p>Recevez un rappel de votre rendez-vous et gérez vos réservations en ligne.</p>
+                  </div>
+              </div>
+          </div>
+  
+      </section><!-- /Starter Section Section -->
+  
+  </main>
+  
 
     <footer id="footer" class="footer light-background">
       <div class="container footer-top">

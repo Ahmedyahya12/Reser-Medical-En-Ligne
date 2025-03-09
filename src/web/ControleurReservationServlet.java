@@ -53,6 +53,13 @@ public class ControleurReservationServlet extends HttpServlet {
 		  request.setAttribute("medecins", medecins);
 		  request.getRequestDispatcher("reservation-add.jsp").forward(request, response);
 			
+		}else if((path.equals("/form-add.res"))) {
+			
+			  List<Medecin> medecins= metierMedc.AffiAttrMedicns();
+			  
+			  request.setAttribute("medecins", medecins);
+			  request.getRequestDispatcher("reservation-add.jsp").forward(request, response);
+				
 		}else if (path.equals("/Admin/rese-add.res") && request.getMethod().equals("POST") ) {
 			  
 			  // Récupérer les valeurs du formulaire
@@ -116,6 +123,70 @@ public class ControleurReservationServlet extends HttpServlet {
           request.getRequestDispatcher("confirmation.jsp").forward(request, response);
 			   
            
+
+		} else if (path.equals("/rese-add.res") && request.getMethod().equals("POST") ) {
+			  
+			  // Récupérer les valeurs du formulaire
+	        int medecinId =Integer.parseInt(request.getParameter("medecin")) ;
+	        
+	        String dateStr = request.getParameter("date_reservation");
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // Format attendu
+	        Date dateReservation = null;
+			try {
+				dateReservation = sdf.parse(dateStr);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        
+	        String message = request.getParameter("message");
+	        String status = request.getParameter("statut");
+	        
+			  
+	        
+	       HttpSession session= request.getSession(false);
+	       
+	       int user_id=0;
+	       if(session !=null  && session.getAttribute("user") != null) {
+	    	    Utilisateur user = (Utilisateur) session.getAttribute("user");
+	    	    
+	    	    user_id=user.getId();
+	    	    
+	       }
+	       
+	       Reservation reservation =new Reservation();
+	       
+	       reservation.setMedecinId(medecinId);
+	       reservation.setDateReservation(dateReservation);
+	       reservation.setUtilisateurId(user_id);
+	       reservation.setMessage(message);
+	       reservation.setStatut(status);
+	       
+	       Utilisateur user=metierUser.getUser(user_id);
+	       
+	       reservation.setUtilisateur(user);
+	       
+	       
+	      Medecin medecin=metierMedc.getMedicin(medecinId);
+	      
+	       reservation.setMedecin(medecin);
+	       
+	       
+	       
+	        Reservation reserv = metier.AjouterRes(reservation);
+	       
+//	       System.out.println(reser.getStatut());
+//	       System.out.print(reser.getMessage());
+	       
+        request.setAttribute("reservation", reserv);
+	       
+	       
+        
+//        response.sendRedirect("reserv-list.res");
+        
+        request.getRequestDispatcher("confirmation.jsp").forward(request, response);
+			   
+         
 
 		}else if (path.equals("/Admin/reserv-list.res")){
 			 
@@ -207,7 +278,7 @@ public class ControleurReservationServlet extends HttpServlet {
 			   response.sendRedirect("reserv-list.res");
 			   
 				   
-		}if (path.equals("/Admin/supprime.res") ) {
+		}else if (path.equals("/Admin/supprime.res") ) {
 			  
 			   int id=Integer.parseInt(request.getParameter("id"));
 			 
@@ -216,6 +287,20 @@ public class ControleurReservationServlet extends HttpServlet {
                 metier.SupprimeReser(id);
 			   
             
+			    
+			    response.sendRedirect("reserv-list.res");
+				   
+
+
+		}else if (path.equals("/supprime.res") ) {
+			  
+			   int id=Integer.parseInt(request.getParameter("id"));
+			 
+			   
+			 
+             metier.SupprimeReser(id);
+			   
+         
 			    
 			    response.sendRedirect("reserv-list.res");
 				   

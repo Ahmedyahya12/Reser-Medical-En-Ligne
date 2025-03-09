@@ -4,16 +4,15 @@
     <!-- Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion -->
     <c:redirect url="${request.getContextPath()}/login.jsp"/>
 </c:if>
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<meta charset="UTF-8">
+
 
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
   <head>
-    
- <meta name="viewport" content="width=device-width, initial-scale=1">    <title>Doc-Res</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Doc-Res</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -54,83 +53,115 @@
   </head>
 
   <body class="index-page">
-     
-     
-     <%@include file="components/nav.jsp" %>
-
+  
+    <%@include file="components/nav.jsp" %>
     <main class="main">
-   
-  <!-- Appointment Section -->
-
-
+      <!-- Hero Section -->
+      <section id="hero" class="hero section light-background" style="padding-top: 1px;">
         
+               <!-- Appointment Section -->
+      <section id="appointment" class="appointment section">
+        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-        <section id="appointment" class="appointment section">
-  <h2 class="text-center mb-4">Liste des réservations pour vous</h2>
-  
-  <table class="table table-borderless my-6 p-4"> <!-- Ajout du padding -->
-    <thead>
-      <tr>
-        <th>Symbole</th>
-        <th scope="col">Code</th>
-        <th scope="col">Date Res.</th>
-        <th scope="col">Patient</th>
-        <th scope="col">Email</th>
-        <th scope="col">Médecin</th>
-        <th scope="col">Statut</th>
-        <th scope="col">Créé le</th>
-        <th scope="col">Message</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <c:forEach var="reservation" items="${reservations}">
-        <tr>
-          <th scope="row">
-            <a href="#">
-              <img style="width: 50px; height: 50px;" src="Admin/assets/img/reservation.jpg" alt="Profile" class="rounded-circle mb-2"/>
-            </a>
-          </th>
-          <td>RES- ${reservation.id}</td>
-          <td>${reservation.dateReservation}</td>
-          <td><span class="badge bg-primary">${reservation.utilisateur.nom}</span></td>
-          <td>${reservation.utilisateur.email}</td>
-          <td>${reservation.medecin.name}</td>
-          <td>
-            <c:choose>
-              <c:when test="${reservation.statut == 'en attente'}">
-                <span class="badge bg-warning">${reservation.statut}</span>
-              </c:when>
-              <c:when test="${reservation.statut == 'confirmé'}">
-                <span class="badge bg-success">${reservation.statut}</span>
-              </c:when>
-              <c:when test="${reservation.statut == 'annulé'}">
-                <span class="badge bg-danger">${reservation.statut}</span>
-              </c:when>
-              <c:otherwise>
-                <span class="badge bg-secondary">${reservation.statut}</span>
-              </c:otherwise>
-            </c:choose>
-          </td>
-          <td>${reservation.dateCreation}</td>
-          <td>${reservation.message}</td>
-          <td>
-            
-            <a href="<%= request.getContextPath() %>/supprime.res?id=${reservation.id}" class="badge text-bg-danger" onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?');">
-              <i class="fas fa-trash"></i> Supprimer
-            </a>
-          </td>
-        </tr>
-      </c:forEach>
-    </tbody>
-  </table>
-  
-  </section>
-  
-</div>
-  
-	
+          <h2>RÃ©servez votre rendez-vous mÃ©dical</h2>
+          <p>
+            Trouvez le mÃ©decin de votre choix et rÃ©servez facilement votre
+            consultation en quelques Ã©tapes.
+          </p>
+        </div>
+        <!-- End Section Title -->
 
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+                      <!-- Section d'informations -->
+                      <div class="alert alert-info" role="alert">
+                        <h4 class="text-center">📅 Réservez une Consultation Médicale</h4>
+                        <p>
+                          Veuillez sélectionner un médecin, choisir une date et laisser un message si nécessaire.
+                          Après soumission, vous recevrez une confirmation de votre rendez-vous.
+                        </p>
+                      </div>
+                     <form
+					  action="<%= request.getContextPath() %>/rese-add.res"
+					  method="post"
+					  role="form"
+					  class="php-email-form">
+						  <div class="row">
+						    <!-- Sélectionner un médecin -->
+						    <div class="col-md-6 form-group">
+						      <label for="medecin">Choisissez un médecin</label>
+						      <select name="medecin" class="form-control" id="medecin" required>
+								    <option value="">Sélectionnez un médecin</option>
+								       <c:forEach var="medecin" items="${medecins}">
+								      <option value="${medecin.id}">${medecin.name} | ${medecin.specialite} | ${medecin.consultation} MRU</option>
+										    
+									  </c:forEach>
+										    
+										    
+								   
+                               </select>
+
+						    </div>
+
+						    <!-- Date de réservation -->
+						    <div class="col-md-6 form-group">
+						      <label for="date_reservation">Date de réservation</label>
+						      <input
+						        type="datetime-local"
+						        name="date_reservation"
+						        class="form-control"
+						        id="date_reservation"
+						        required
+						      />
+						    </div>
+						  </div>
+
+						  <div class="row">
+						    <div class="col-md-4 form-group">
+						    
+						      <input
+						        type="hidden"
+						        name="statut"
+						        class="form-control"
+						        id="date_reservation"
+						        value="en attente"
+						        
+						        
+						      />
+						    </div>
+						    <!-- Message optionnel -->
+						    <div class="col-md-12 form-group mt-3">
+						      <label for="message">Message (optionnel)</label>
+						      <textarea
+						        name="message"
+						        class="form-control"
+						        id="message"
+						        rows="4"
+						        placeholder="Ajoutez un message si nécessaire..."
+						      ></textarea>
+						    </div>
+						    
+						  </div>
+						
+						  <div class="mt-3 text-center">
+						    <button type="submit" class="btn btn-primary">Réserver</button>
+						  </div>
+						</form>
+
+                    
+                    </div>
+      </section>
+      <!-- /Appointment Section -->
+          
+      </section>
+      <!-- /Hero Section -->
+
+   
+
+  
+        
+
+    
+     
     </main>
 
     <footer id="footer" class="footer light-background">
@@ -208,7 +239,7 @@
 
       <div class="container copyright text-center mt-4">
         <p>
-          © <span>Copyright</span>
+          Â© <span>Copyright</span>
           <strong class="px-1 sitename">Doc-Res</strong>
           <span>All Rights Reserved</span>
         </p>
@@ -232,7 +263,7 @@
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+   
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

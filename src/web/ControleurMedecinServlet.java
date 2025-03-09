@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet({"*.medicin"}) 
+@WebServlet({"*.medicin"})
 public class ControleurMedecinServlet extends HttpServlet {
 	
 	MedecinDao metier;
@@ -26,13 +26,12 @@ public class ControleurMedecinServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String  path=request.getServletPath();
+		 
 		
 		if(path.equals("/Admin/doctors-list.medicin") && request.getMethod().equals("GET")){
 			 
 			MedicinModel model=new MedicinModel();
-			
-			
-			
+				
 			List<Medecin> medicins=metier.AfficherMedicns();
 			
 			model.setMedicins(medicins);
@@ -40,6 +39,18 @@ public class ControleurMedecinServlet extends HttpServlet {
 			request.setAttribute("model", model);
 			
 			request.getRequestDispatcher("doctors-list.jsp").forward(request, response);
+			
+		}else if((path.equals("/doctors-list.medicin")) && request.getMethod().equals("GET")){
+			 
+			MedicinModel model=new MedicinModel();
+				
+			List<Medecin> medicins=metier.AfficherMedicns();
+			
+			model.setMedicins(medicins);
+			
+			request.setAttribute("model", model);
+			
+			request.getRequestDispatcher("doctors.jsp").forward(request, response);
 			
 		}else if(path.equals("/Admin/modifier.medicin") && request.getMethod().equals("GET")){
 			 
@@ -122,7 +133,24 @@ public class ControleurMedecinServlet extends HttpServlet {
 				 
 				    request.getRequestDispatcher("doctors-list.jsp").forward(request, response);
 					   
+			}else if(path.equals("/chercher.medicin") && request.getMethod().equals("GET")) {
+				String motCle=request.getParameter("motCle");
+				   
+	             
+				   MedicinModel model =new MedicinModel();
+				   
+			       model.setMotCle(motCle);
+		         
+			       List<Medecin> medecins= metier.ChercherMedecinParMc(motCle);
+			       
+			       model.setMedicins(medecins);
+			       
+			      	request.setAttribute("model", model);
+				 
+				    request.getRequestDispatcher("doctors.jsp").forward(request, response);
+					   
 			}
+		
 	}
 
 	

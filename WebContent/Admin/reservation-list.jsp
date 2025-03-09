@@ -242,12 +242,12 @@
 					    </c:when>
 					
 					    
-					    <c:when test="${reservation.statut == 'confirme'}">
+					    <c:when test="${reservation.statut == 'confirmé'}">
 					        <span class="badge bg-success">${reservation.statut}</span>
 					    </c:when>
 					
 					
-					    <c:when test="${reservation.statut == 'annule'}">
+					    <c:when test="${reservation.statut == 'annulé'}">
 					        <span class="badge bg-danger">${reservation.statut}</span>
 					    </c:when>
 					
@@ -286,206 +286,12 @@
 <!-- End Users Table -->
               <!-- End Recent Sales -->
               <!-- Doctors Table -->
-<div class="col-12">
-  <div class="card doctors-list overflow-auto">
-    
-    <!-- Title and Search Bar -->
-    <div class="d-flex justify-content-between align-items-center p-3">
-      <h5 class="card-title m-0">Liste des Médecins</h5>
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" class="form-control" placeholder="Search" title="Enter search keyword" />
-        <button type="submit" class="btn btn-primary ms-2" title="Search">
-          <i class="bi bi-search"></i>
-        </button>
-      </form>
-    </div>
-    <!-- End Title and Search Bar -->
 
-    <div class="card-body">
-      <table class="table table-borderless ">
-        <thead>
-          <tr>
-            <th scope="col">Avatar</th>
-            <th scope="col">ID</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Spécialité</th>
-            <th scope="col">Adresse</th>
-            <th scope="col">Consultation</th>
-            <th scope="col">T. Attente</th>
-            <th scope="col"> H. Travail</th>
-            <th scope="col">S. Téléphonique</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">
-              <a href="#">
-                <img style="width: 50px;height: 50px;" src="assets/img/doctors-1.jpg" alt="Profile" class="rounded-circle mb-2" />
-              </a>
-            </th>
-            <td>1</td>
-            <td>Dr. Karim Ben</td>
-            <td>Cardiologie</td>
-            <td>Paris, France</td>
-            <td><span class="badge bg-info">$50</span></td> 
-            <td>15 min</td>
-            <td><span class="badge bg-success">08h - 17h</span></td>
-            <td>Oui</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <a href="#">
-                <img style="width: 50px;height: 50px;" src="assets/img/Doctor.png" alt="Profile" class="rounded-circle mb-2" />
-              </a>
-            </th>
-            <td>2</td>
-            <td>Dr. Amine Khaled</td>
-            <td>Dermatologie</td>
-            <td>Lyon, France</td>
-            <td >60€</td>
-            <td>10 min</td>
-            <td>8h - 16h</td>
-            <td>Non</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <a href="#">
-                <img style="width: 50px;height: 50px;" src="assets/img/doctors-3.jpg" alt="Profile" class="rounded-circle mb-2" />
-              </a>
-            </th>
-            <td>3</td>
-            <td>Dr. Sophie Martin</td>
-            <td>Gynécologie</td>
-            <td>Marseille, France</td>
-            <td>55€</td>
-            <td>20 min</td>
-            <td>10h - 18h</td>
-            <td>Oui</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 <!-- End Doctors Table -->
 
 
-              <!-- Top Selling -->
-              <div class="col-12">
-                <div class="card top-selling overflow-auto">
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"
-                      ><i class="bi bi-three-dots"></i
-                    ></a>
-                    <ul
-                      class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
-                    >
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
-
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="card-body pb-0">
-                    <h5 class="card-title">Top Selling <span>| Today</span></h5>
-
-                    <table class="table table-borderless">
-                      <thead>
-                        <tr>
-                          <th scope="col">Preview</th>
-                          <th scope="col">Product</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Sold</th>
-                          <th scope="col">Revenue</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                              ><img src="assets/img/product-1.jpg" alt=""
-                            /></a>
-                          </th>
-                          <td>
-                            <a href="#" class="text-primary fw-bold"
-                              >Ut inventore ipsa voluptas nulla</a
-                            >
-                          </td>
-                          <td>$64</td>
-                          <td class="fw-bold">124</td>
-                          <td>$5,828</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                              ><img src="assets/img/product-2.jpg" alt=""
-                            /></a>
-                          </th>
-                          <td>
-                            <a href="#" class="text-primary fw-bold"
-                              >Exercitationem similique doloremque</a
-                            >
-                          </td>
-                          <td>$46</td>
-                          <td class="fw-bold">98</td>
-                          <td>$4,508</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                              ><img src="assets/img/product-3.jpg" alt=""
-                            /></a>
-                          </th>
-                          <td>
-                            <a href="#" class="text-primary fw-bold"
-                              >Doloribus nisi exercitationem</a
-                            >
-                          </td>
-                          <td>$59</td>
-                          <td class="fw-bold">74</td>
-                          <td>$4,366</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                              ><img src="assets/img/product-4.jpg" alt=""
-                            /></a>
-                          </th>
-                          <td>
-                            <a href="#" class="text-primary fw-bold"
-                              >Officiis quaerat sint rerum error</a
-                            >
-                          </td>
-                          <td>$32</td>
-                          <td class="fw-bold">63</td>
-                          <td>$2,016</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <a href="#"
-                              ><img src="assets/img/product-5.jpg" alt=""
-                            /></a>
-                          </th>
-                          <td>
-                            <a href="#" class="text-primary fw-bold"
-                              >Sit unde debitis delectus repellendus</a
-                            >
-                          </td>
-                          <td>$79</td>
-                          <td class="fw-bold">41</td>
-                          <td>$3,239</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
               <!-- End Top Selling -->
-            </div>
+            
           </div>
      
 
